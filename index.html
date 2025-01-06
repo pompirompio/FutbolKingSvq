@@ -3,38 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda de Camisetas</title>
+    <title>Tienda Online de Camisetas</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <header>
-    <h1>Tienda de Camisetas</h1>
+    <h1>Tienda de Camisetas Personalizadas</h1>
 </header>
 
+<!-- Sección de productos -->
 <section id="productos">
-    <h2>Productos</h2>
-    <div class="producto" id="producto1">
+    <h2>Elige tu camiseta</h2>
+
+    <div class="producto">
         <h3>Camiseta Retro</h3>
-        <p>30€</p>
-        <button onclick="addToCart('Camiseta Retro', 30)">Añadir al Carrito</button>
+        <p>Precio: 30€</p>
+        <button onclick="selectProduct('Camiseta Retro', 30)">Seleccionar</button>
     </div>
-    <div class="producto" id="producto2">
+    <div class="producto">
         <h3>Camiseta Actual</h3>
-        <p>25€</p>
-        <button onclick="addToCart('Camiseta Actual', 25)">Añadir al Carrito</button>
+        <p>Precio: 25€</p>
+        <button onclick="selectProduct('Camiseta Actual', 25)">Seleccionar</button>
     </div>
 </section>
 
+<!-- Opciones de personalización -->
+<section id="personalizacion">
+    <h2>Personaliza tu camiseta</h2>
+
+    <label for="tamano">Tamaño:</label>
+    <select id="tamano">
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+        <option value="2XL">2XL</option>
+        <option value="3XL">3XL</option>
+    </select>
+
+    <label for="tipo">Tipo de camiseta:</label>
+    <select id="tipo">
+        <option value="local">Local</option>
+        <option value="visitante">Visitante</option>
+        <option value="tercera">Tercera</option>
+    </select>
+
+    <label for="parches">Selecciona los parches:</label>
+    <select id="parches" multiple>
+        <option value="liga">Liga - 1€</option>
+        <option value="uefa">Competición UEFA - 2€</option>
+        <option value="seleccion">Selección - 2€</option>
+    </select>
+</section>
+
+<!-- Carrito -->
 <section id="carrito">
     <h2>Carrito de Compras</h2>
     <ul id="cartList"></ul>
     <p>Total: <span id="totalPrice">0€</span></p>
-    <button onclick="checkout()">Realizar Pago</button>
+    <button onclick="checkout()">Finalizar Compra</button>
 </section>
 
+<!-- Información adicional -->
+<section id="informacion-adicional">
+    <h2>Información adicional</h2>
+    <form id="formulario">
+        <label for="instagram">Tu Instagram:</label>
+        <input type="text" id="instagram" placeholder="Instagram" required>
+
+        <label for="direccion">Dirección de envío:</label>
+        <input type="text" id="direccion" placeholder="Dirección de envío" required>
+        
+        <label for="mensaje">Mensaje adicional:</label>
+        <textarea id="mensaje" placeholder="Escribe tu mensaje"></textarea>
+    </form>
+</section>
+
+<!-- Integración de Firebase -->
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
 <script src="script.js"></script>
+
 </body>
 </html>
