@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <h1>Mi Tienda de Camisetas</h1>
+</header>
+
+<section id="productos">
+    <h2>Productos</h2>
+    <div class="producto" id="producto1">
+        <h3>Camiseta Retro</h3>
+        <p>30€</p>
+        <button onclick="addToCart('Camiseta Retro', 30)">Añadir al Carrito</button>
+    </div>
+    <div class="producto" id="producto2">
+        <h3>Camiseta Actual</h3>
+        <p>25€</p>
+        <button onclick="addToCart('Camiseta Actual', 25)">Añadir al Carrito</button>
+    </div>
+</section>
+
+<section id="carrito">
+    <h2>Carrito de Compras</h2>
+    <ul id="cartList"></ul>
+    <p>Total: <span id="totalPrice">0€</span></p>
+    <button onclick="checkout()">Realizar Pago</button>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
+
