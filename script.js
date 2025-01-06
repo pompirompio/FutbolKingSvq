@@ -1,7 +1,7 @@
 let cart = [];
 let total = 0;
 
-function addToCart(name, price) {
+function selectProduct(name, price) {
     cart.push({ name, price });
     total += price;
     updateCart();
@@ -21,21 +21,27 @@ function updateCart() {
 }
 
 function checkout() {
-    // Enviar pedido a Firebase
-    saveOrderToFirebase(cart, total);
+    const instagram = document.getElementById('instagram').value;
+    const direccion = document.getElementById('direccion').value;
+    const mensaje = document.getElementById('mensaje').value;
 
-    alert("¡Gracias por tu compra! Te contactaremos para más detalles.");
+    saveOrderToFirebase(cart, total, instagram, direccion, mensaje);
+
+    alert("¡Gracias por tu compra! Te contactaremos a través de Instagram.");
     cart = [];
     total = 0;
     updateCart();
 }
 
-function saveOrderToFirebase(cart, total) {
+function saveOrderToFirebase(cart, total, instagram, direccion, mensaje) {
     const db = firebase.firestore();
 
     db.collection("orders").add({
         items: cart,
         total: total,
+        instagram: instagram,
+        direccion: direccion,
+        mensaje: mensaje,
         date: new Date(),
     })
     .then((docRef) => {
